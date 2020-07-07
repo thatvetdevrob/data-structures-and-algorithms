@@ -10,14 +10,23 @@ Then, write a function named speaker that takes in a string and a callback funct
 
 const greeting = (word) => {
   // Solution code here...
-  let nerwWord = word.toUpperCase();
 
-  return nerwWord;
+  // console.log('This is whats being passed in: ' + word);
+
+  let newWord = word.toUpperCase();
+
+  // console.log('This is what comes back: ' + newWord);
+
+  return newWord;
 };
 
 const speaker = (message, callback) => {
 
+  // console.log('This is whats being passed in: ' + message);
+
   callback = greeting(message);
+
+  // console.log('This is what comes back: ' + callback);
 
   return callback;
 };
@@ -43,8 +52,8 @@ const addValues = (arr, value) => {
 };
 
 const addNumbers = (num, arr, times, callback) => {
-  // Solution code here...
-  for (let i = 0; i < times; i++) {
+
+  for(let i = 0; i < times; i++){
     callback(arr, num);
   }
   return arr;
@@ -65,18 +74,22 @@ The inventory is formatted like this:
   { name: 'blueberries', available: false }
 ]
 
+
 This function should use forEach to populate your grocery list based on the store's inventory. If the item is available, add it to your list. Return the final list.
 ------------------------------------------------------------------------------------------------ */
 
 const createList = (availableItems) => {
   // Solution code here...
-  const groceryList = [];
-  availableItems.forEach(function(item) {
-    if (item.available === true){
-      groceryList.push(item.name);
+
+  let finalList = [];
+
+  availableItems.forEach(function(element) {
+
+    if (element.available === true){
+      finalList.push(element.name);
     }
   });
-  return groceryList;
+  return finalList;
 };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -94,24 +107,26 @@ Return the resulting output array.
 
 const fizzbuzz = (arr) => {
   // Solution code here...
-  const output = [];
+  const hmmmm = [];
+
   arr.forEach(function(value){
     if (value % 3 === 0) {
       if (value % 5 === 0){
-        output.push('Fizz Buzz');
+        // hmmmm.push('Fizz Buzz!');
+        hmmmm.push('Fizz Buzz');
       }
       else {
-        output.push('Fizz');
+        hmmmm.push('Fizz');
       }
     }
     else if (value % 5 === 0) {
-      output.push('Buzz');
+      hmmmm.push('Buzz');
     }
     else {
-      output.push(value);
+      hmmmm.push(value);
     }
   });
-  return output;
+  return hmmmm;
 };
 
 
