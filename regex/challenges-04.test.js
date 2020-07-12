@@ -23,11 +23,13 @@ let $ = createSnippetWithJQuery(`
 `);
 
 const generateSubmitButton = () => {
+  // Solution code here...
 
   let button = '<button>submit</button>';
   // Solution code here...
   $('form').append(button);
   console.log(button);
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -43,20 +45,10 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const isNum = (input) => {
-
-  let x  = /\d/;
-
-  x.test(input);
-
-  console.log('This is the XXXXXXXX: ', input);
-
-  return input;
-
-  // return input;
-
-  // // Solution code here...
-
-};
+  // Solution code here...
+    let condition = /\d/;
+    return condition.test(input);
+  };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -67,19 +59,8 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-
-  let y = [];
-
-  y = str.match(/\b[A-Z]+\w+/g);
-
-  let z = y === null ? [] : y ;
-
-  return z;
-
-  // return input;
-
-  // // Solution code here...
-
+  let caps = /[A-Z]\w+/g;
+  return str.match(caps);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -90,25 +71,18 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 
 const citiesAtoJ = (arr) => {
   // Solution code here...
-  
-  let X_X = /^[A-J]\w+/;
-  let cities = [];
-  /* 
-  
-__________        __    .__         .__  __       _____          __ _________ 
-\______   \__ ___/  |_  |__| ______ |___/  |_    /  _  \________/  |\_____   \
- |    |  _|  |  \   __\ |  |/  ___/ |  \   __\  /  /_\  \_  __ \   __\ /   __/
- |    |   |  |  /|  |   |  |\___ \  |  ||  |   /    |    |  | \/|  |  |   |   
- |______  |____/ |__|   |__/____  > |__||__|   \____|__  |__|   |__|  |___|   
-        \/                      \/                     \/             <___>  
-  */ 
+
+
+  let cities = /^[A-J]\w+/;
+  let arr1 = [];
   arr.forEach(place => {
-    if (X_X.test(place)) {
-      cities.push(place);
+    if (cities.test(place)) {
+      arr1.push(place);
     }
   });
-  console.log(cities);
-  return cities;
+  return arr1;
+
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -126,37 +100,11 @@ Do not use the vertical bar (pipe) in your pattern.
 const matchMonth = (input) => {
   // Solution code here...
 
-  console.log('This is the input: ', input);
+  let boo = /^[oO]ct(ober)?\b/;
+  return boo.test(input);
+
 
 };
-
-
-/* 
-
-EEEEP!
-
-            _.------.                        .----.__
-           /         \_.       ._           /---.__  \
-          |  O    O   |\\___  //|          /       `\ |
-          |  .vvvvv.  | )   `(/ |         | o     o  \|
-          /  |     |  |/      \ |  /|   ./| .vvvvv.  |\
-         /   `^^^^^'  / _   _  `|_ ||  / /| |     |  | \
-       ./  /|         | O)  O   ) \|| //' | `^vvvv'  |/\\
-      /   / |         \        /  | | ~   \          |  \\
-      \  /  |        / \ Y   /'   | \     |          |   ~
-       `'   |  _     |  `._/' |   |  \     7        /
-         _.-'-' `-'-'|  |`-._/   /    \ _ /    .    |
-    __.-'            \  \   .   / \_.  \ -|_/\/ `--.|_
- --'                  \  \ |   /    |  |              `-
-                       \uU \UU/     |  /   :F_P:
-
-
-*/ 
-
-
-
-
-
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
@@ -218,7 +166,7 @@ describe('Testing challenge 1', () => {
   test('It should add a submit button to the DOM', () => {
     generateSubmitButton();
     expect($('button').text()).toStrictEqual('submit');
-  });
+  })
 });
 
 describe('Testing challenge 2', () => {
@@ -319,3 +267,4 @@ xdescribe('Testing challenge 8', () => {
 function createSnippetWithJQuery(html){
   return cheerio.load(html);
 }
+
