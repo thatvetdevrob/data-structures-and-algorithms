@@ -27,7 +27,7 @@ const generateSubmitButton = () => {
   let button = '<button>submit</button>';
   // Solution code here...
   $('form').append(button);
-
+  console.log(button);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -47,6 +47,8 @@ const isNum = (input) => {
   let x  = /\d/;
 
   x.test(input);
+
+  console.log('This is the XXXXXXXX: ', input);
 
   return input;
 
@@ -89,10 +91,24 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 const citiesAtoJ = (arr) => {
   // Solution code here...
   
-  let y = arr.match(/\b[A-J]+\w+/gi);
-
-  console.log('This is the y: ' +y);
-
+  let X_X = /^[A-J]\w+/;
+  let cities = [];
+  /* 
+  
+__________        __    .__         .__  __       _____          __ _________ 
+\______   \__ ___/  |_  |__| ______ |___/  |_    /  _  \________/  |\_____   \
+ |    |  _|  |  \   __\ |  |/  ___/ |  \   __\  /  /_\  \_  __ \   __\ /   __/
+ |    |   |  |  /|  |   |  |\___ \  |  ||  |   /    |    |  | \/|  |  |   |   
+ |______  |____/ |__|   |__/____  > |__||__|   \____|__  |__|   |__|  |___|   
+        \/                      \/                     \/             <___>  
+  */ 
+  arr.forEach(place => {
+    if (X_X.test(place)) {
+      cities.push(place);
+    }
+  });
+  console.log(cities);
+  return cities;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -109,7 +125,38 @@ Do not use the vertical bar (pipe) in your pattern.
 
 const matchMonth = (input) => {
   // Solution code here...
+
+  console.log('This is the input: ', input);
+
 };
+
+
+/* 
+
+EEEEP!
+
+            _.------.                        .----.__
+           /         \_.       ._           /---.__  \
+          |  O    O   |\\___  //|          /       `\ |
+          |  .vvvvv.  | )   `(/ |         | o     o  \|
+          /  |     |  |/      \ |  /|   ./| .vvvvv.  |\
+         /   `^^^^^'  / _   _  `|_ ||  / /| |     |  | \
+       ./  /|         | O)  O   ) \|| //' | `^vvvv'  |/\\
+      /   / |         \        /  | | ~   \          |  \\
+      \  /  |        / \ Y   /'   | \     |          |   ~
+       `'   |  _     |  `._/' |   |  \     7        /
+         _.-'-' `-'-'|  |`-._/   /    \ _ /    .    |
+    __.-'            \  \   .   / \_.  \ -|_/\/ `--.|_
+ --'                  \  \ |   /    |  |              `-
+                       \uU \UU/     |  /   :F_P:
+
+
+*/ 
+
+
+
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
