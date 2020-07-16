@@ -70,12 +70,20 @@ let $ = createSnippetWithJQuery(`
 `);
 
 
-// const templatingWithMustache = () => {
 
-//im not sure if i can add an iput to the provided test so i will wait for input if not right.
 
-const templatingWithMustache = (arr) => {
-  return arr.length;
+const templatingWithMustache = () => {
+
+  let mustacheArray = [];
+  characters.forEach(person => {
+
+    let template = $('#template').html();
+    let html = Mustache.render(template, person);
+    mustacheArray.push(html);
+
+  });
+
+  return mustacheArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -91,7 +99,7 @@ const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningT
 };
 
 const getCourseKeys = (obj) => Object.keys(obj);
-  // Solution code here...
+// Solution code here...
 
 
 //no curlies if its in one line but if requested to do it another way i will take feedback.
