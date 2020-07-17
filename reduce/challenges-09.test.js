@@ -161,14 +161,27 @@ const currentEvents = {
 
 function getCurrentEvents(request, response){
   // Solution code here...
+// like api try catch
+  response.status(200).send(mapCurrentEvents());
+
 }
 
 const mapCurrentEvents = () => {
   // Solution code here...
+
+  return currentEvents.news.map(Element => new Event(Element));
+
+
 };
 
 function Event(obj){
   // Solution code here...
+  this.author = obj.author;
+  this.categories = obj.category;
+  this.summary = obj.summary;
+  this.image_url = obj.image_url;
+  this.date = obj.date;
+  this.title = obj.title;
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -181,7 +194,14 @@ Note: You may not use the array's built-in length property.
 
 const countNumberOfElements = (arr) => {
   // Solution code here...
+  return arr.reduce(counter => {
+  
+    return counter + 1;
+
+  }, 0);
+
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
