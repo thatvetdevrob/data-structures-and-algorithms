@@ -3,7 +3,7 @@
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
-Write a function that iterates over an array of people objects 
+Write a function that iterates over an array of people objects
 and creates a new list of each person's full name using the array method 'map'.
 Each object will have the shape {firstName:string, lastName:string}
 E.g. [ { firstName:"Jane", lastName:"Doe" }, { firstName:"James", lastName:"Bond"}]
@@ -13,7 +13,9 @@ You can assume that neither firstName nor lastName will be blank
 ------------------------------------------------------------------------------------------------ */
 const toLastNames = people => {
   // Solution code here...
+  return people.map(person => person.firstName.concat(' ', person.lastName));
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -24,7 +26,17 @@ If the PIN is four numerical digits long, return true. Otherwise, return false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePin = (pin) => {
-  // Solution code here...
+  // grouping 4 digits
+  let match = /\d{4}/;
+
+  if (pin.toString().length === 4){
+  //we only need truthy or falsy
+    return match.test(`${pin}`);
+  }
+  else {
+  // anything else is bogus
+    return false;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -45,6 +57,10 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 
 const validateEmail = (email) => {
   // Solution code here...
+  // let code = /^\w+@\w+\.((net)|(org)|(com))\b/;
+  // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH!!!!!!!!!!!!!!!!!!!
+  let code = /^(\w+|\w+\.+\w+)@\w+\.\D{3}$/;
+  return code.test(email);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -70,7 +86,19 @@ Return either true or false.
 
 const validatePhoneNumber = (phoneNumber) => {
   // Solution code here...
+
+  // space or dash (-| )
+  // ^ begining
+  // $ end
+  let code = /^(\(\d\{3}\)|\d{3})(-| )?\d{3}(-| )?\d\{4}$/;
+
+
+  return code.test(phoneNumber);
 };
+// still not passong all?
+// return phoneNumber.match(regex);
+// return phoneNumber.test(regex);
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
@@ -83,6 +111,9 @@ findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>'])
 
 const findTagNames = elements => {
   // Solution code here...
+
+
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -98,9 +129,9 @@ Run your tests from the console: jest solutions-11.test.js
 describe('Testing challenge 1', () => {
   test('It should convert object to full name string', () => {
 
-    const people = [{ firstName: "Jane", lastName: "Doe" }, { firstName: "James", lastName: "Bond" }];
+    const people = [{ firstName: 'Jane', lastName: 'Doe' }, { firstName: 'James', lastName: 'Bond' }];
 
-    expect(toLastNames(people)).toStrictEqual(["Jane Doe", "James Bond"]);
+    expect(toLastNames(people)).toStrictEqual(['Jane Doe', 'James Bond']);
 
   });
 });
