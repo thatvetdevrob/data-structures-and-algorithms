@@ -57,10 +57,10 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 
 const validateEmail = (email) => {
   // Solution code here...
-  let code = /^\w+@\w+\.((net)|(org)|(com))\b/;
-
+  // let code = /^\w+@\w+\.((net)|(org)|(com))\b/;
+  // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH!!!!!!!!!!!!!!!!!!!
+  let code = /^(\w+|\w+\.+\w+)@\w+\.\D{3}$/;
   return code.test(email);
-
 };
 
 /* ------------------------------------------------------------------------------------------------
